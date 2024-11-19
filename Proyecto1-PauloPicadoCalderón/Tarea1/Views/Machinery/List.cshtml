@@ -11,6 +11,14 @@
         <p>
             <a asp-action="Create" class="btn btn-primary w-auto">Registrar Máquina</a>
         </p>
+        <div class="d-flex justify-content-end mb-3">
+            <div class="input-group" style="width: 250px;">
+                <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" id="searchInput">
+                <button class="custom-search-btn" type="button" id="searchButton" style="margin-left: -1px;">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
     </header>
     @if (!Model.Any())
     {
@@ -86,10 +94,45 @@
         </div>
     }
 </section>
+<style>
+    .custom-search-btn {
+        background-color: #8B4513; /* color marrón */
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0 4px 4px 0; /* Borde redondeado derecho */
+        cursor: pointer;
+    }
+
+        .custom-search-btn:hover {
+            background-color: #A0522D; /* color marrón más claro para hover */
+        }
+
+</style>
 @section Scripts {
     <script src="~/js/List.js"></script>
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        document.getElementById("searchButton").onclick = function () {
+            var searchId = document.getElementById("searchInput").value;
+            if (searchId) {
+                // Redirige a la acción Details con el id obtenido
+                window.location.href = '/Machinery/Details/' + searchId;
+            } else {
+                alert("Por favor, ingrese un ID válido.");
+            }
+        };
+    </script>
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <script>
+            alert('@TempData["ErrorMessage"]');
+        </script>
     }
 }
 
