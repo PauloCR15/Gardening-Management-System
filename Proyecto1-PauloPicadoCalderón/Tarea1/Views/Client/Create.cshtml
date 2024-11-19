@@ -1,0 +1,117 @@
+﻿@model Tarea1.Models.Client
+
+@{
+    ViewData["Title"] = "Registrar Cliente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row justify-content-start border rounded mb-4 contenedor mt-4">
+    <h5 class="text-center display-2 mb-5 mt-2">Registrar Cliente</h5>
+    <div class="col-md-6">
+        <form asp-action="Create" class="add-formulario">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- ID -->
+            <div class="form-group mb-3">
+                <label asp-for="ClientID" class="control-label"></label>
+                <input asp-for="ClientID" class="form-control" type="number" id="ID" placeholder="_________" />
+                <span asp-validation-for="ClientID" class="text-danger"></span>
+            </div>
+
+            <!-- Nombre completo -->
+            <div class="form-group mb-3">
+                <label asp-for="ClientFullName" class="control-label"></label>
+                <input asp-for="ClientFullName" class="form-control" placeholder="Tu nombre completo" />
+                <span asp-validation-for="ClientFullName" class="text-danger"></span>
+            </div>
+
+            <!-- Provincia -->
+            <div class="form-group mb-3">
+                <label asp-for="Province" class="control-label"></label>
+
+                <div class="dropdown-container">
+                    <select asp-for="Province" class="form-control" id="province-select">
+                    </select>
+                    <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M7 10l5 5 5-5z"></path>
+                    </svg>
+                </div>
+
+                <span asp-validation-for="Province" class="text-danger"></span>
+            </div>
+
+            <!-- Cantón -->
+            <div class="form-group mb-3">
+                <label asp-for="Canton" class="control-label"></label>
+
+                <div class="dropdown-container">
+                    <select asp-for="Canton" class="form-control" id="canton-select" disabled="true">
+                    </select>
+                    <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M7 10l5 5 5-5z"></path>
+                </div>
+                <span asp-validation-for="Canton" class="text-danger"></span>
+            </div>
+
+            <!-- Distrito -->
+            <div class="form-group mb-3">
+                <label asp-for="District" class="control-label"></label>
+                <div class="dropdown-container">
+                    <select asp-for="District" class="form-control" id="district-select" disabled="true"> </select>
+                    <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M7 10l5 5 5-5z"></path>
+                    </svg>
+                </div>
+                <span asp-validation-for="District" class="text-danger"></span>
+            </div>
+
+            <!-- Dirección -->
+            <div class="form-group mb-3">
+                <label asp-for="ClientFullDirection" class="control-label"></label>
+                <input asp-for="ClientFullDirection" class="form-control" placeholder="Dirección" />
+                <span asp-validation-for="ClientFullDirection" class="text-danger"></span>
+            </div>
+            
+
+            <!-- Preferencia de mantenimiento en verano -->
+            <div class="form-group mb-3">
+                <label asp-for="SummerMowingPreferenceName" class="control-label"></label>
+                <select asp-for="SummerMowingPreferenceName" class="form-control">
+                    <option value="">Seleccione una opción</option>
+                    <option value="Quincenal">Quincenal</option>
+                    <option value="Mensual">Mensual</option>
+                </select>
+                <span asp-validation-for="SummerMowingPreferenceName" class="text-danger"></span>
+            </div>
+
+            <!-- Preferencia de mantenimiento en invierno -->
+            <div class="form-group mb-3">
+                <label asp-for="WinterMowingPrecerenceName" class="control-label"></label>
+                <select asp-for="WinterMowingPrecerenceName" class="form-control">
+                    <option value="">Seleccione una opción</option>
+                    <option value="Quincenal">Quincenal</option>
+                    <option value="Mensual">Mensual</option>
+                </select>
+                <span asp-validation-for="WinterMowingPrecerenceName" class="text-danger"></span>
+            </div>
+
+            <!-- Botón de crear -->
+            <form method="post" asp-action="Create">
+                <input type="hidden" asp-for="ClientID" />
+                <input type="submit" value="Crear" class="btn btn-primary w-50 me-2 mb-3" />
+            </form>
+            <a asp-action="List" class="btn btn-secondary w-25 mb-3 text-uppercase" style="font-size:1.8rem; padding:1rem 2rem;">Volver</a>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="~/js/Validations.js" asp-append-version="true"></script>
+    <script src="~/js/Location.js" asp-append-version="true"></script>
+    
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+   
+}

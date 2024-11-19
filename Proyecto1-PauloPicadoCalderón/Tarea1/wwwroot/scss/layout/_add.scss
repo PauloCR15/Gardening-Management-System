@@ -1,0 +1,50 @@
+﻿@use "../base/var" as v;
+@use "../base/mixins" as m;
+
+.add-formulario .form-control {
+    font-size: 1.5rem; /* Ajusta el tamaño de texto en inputs */
+}
+
+.form-group label {
+    min-width: 100px; /* Ajusta el ancho del label si es necesario */
+}
+
+h1 {
+    margin: 0;
+    margin-top: 2rem;
+}
+
+.btn-primary {
+    background-color: v.$color-secundario;
+    border: none;
+    color: v.$blanco;
+    padding: 1rem 2rem;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    margin-top: 2rem; 
+    display: block;
+    width: 100%;
+    transition: background-color .3s ease;
+
+    &:hover {
+        background-color: darken(v.$color-secundario, 10%);
+    }
+}
+
+footer {
+    margin-top: 2rem;
+}
+
+.dropdown-container {
+    position: relative;
+}
+
+.dropdown-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    width: 20px;
+    height: 20px;
+}

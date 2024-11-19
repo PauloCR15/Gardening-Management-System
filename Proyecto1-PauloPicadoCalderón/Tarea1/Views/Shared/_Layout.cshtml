@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Sistema Jardinería</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="https://cdn.datatables.net/v/dt/dt-2.1.7/datatables.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+    <link rel="stylesheet" href="~/css/app.min.css" />
+    <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <div>
+                <div class="barra">
+                    <a class="logo" asp-area="" asp-controller="Home" asp-action="Index">
+                        <h1 class="logo__nombre">Sistema Jardinería Hermanos Hernández</h1>
+                    </a>
+                    <nav class="navegacion">
+                        <a class="navegacion__enlace" asp-area="" asp-controller="Employee" asp-action="List">Empleados</a>
+                        <a class="navegacion__enlace" asp-area="" asp-controller="Client" asp-action="List">Clientes</a>
+                        <a class="navegacion__enlace" asp-area="" asp-controller="Machinery" asp-action="List">Maquinaria</a>
+                        <a class="navegacion__enlace" asp-area="" asp-controller="Maintenance" asp-action="List">Mantenimientos</a>
+                        <a class="navegacion__enlace" asp-area="" asp-controller="Reports" asp-action="List">Reportes</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <div class="container content">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+
+        <footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2024 - Sistema Jardinería Hermanos Hernández. Todos los derechos reservados.
+                - <a href="/Home/Privacy">Privacy</a>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+    <script src="https://cdn.datatables.net/v/dt/dt-2.1.7/datatables.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

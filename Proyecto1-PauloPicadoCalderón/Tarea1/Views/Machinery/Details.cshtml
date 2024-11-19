@@ -1,0 +1,40 @@
+﻿@model Tarea1.Models.Machinery
+
+@{
+    ViewData["Title"] = "Detalles";
+}
+
+<div class="contenedor">
+    <div class="border rounded p-3 mb-4 mt-4">
+        <h5 class="text-center display-5 mb-4">Información de la Máquina</h5>
+        <dl class="row">
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.MachineryID) </dt>
+            <dd class="col-sm-9"> @Html.DisplayFor(model => model.MachineryID) </dd>
+
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.MachineryDescription) </dt>
+            <dd class="col-sm-9"> @Html.DisplayFor(model => model.MachineryDescription) </dd>
+
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.MachineryType) </dt>
+            <dd class="col-sm-9"> @Html.DisplayFor(model => model.MachineryType) </dd>
+        </dl>
+    </div>
+
+    <div class="border rounded p-3 mb-4">
+        <h5 class="text-center display-5 mb-4">Detalles de Uso y Mantenimiento</h5>
+        <dl class="row">
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.MachineryActualUseTime) </dt>
+            <dd class="col-sm-9"> @Html.DisplayFor(model => model.MachineryActualUseTime) </dd>
+
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.MachineryMaxHoursPerDay) </dt>
+            <dd class="col-sm-9"> @Html.DisplayFor(model => model.MachineryMaxHoursPerDay) </dd>
+
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.MaintenanceHours) </dt>
+            <dd class="col-sm-9"> @Html.DisplayFor(model => model.MaintenanceHours) </dd>
+        </dl>
+    </div>
+</div>
+
+<div class="d-flex gap-3">
+    @Html.ActionLink("Editar", "Edit", new { id = Model.MachineryID }, new { @class = "btn btn-secondary btn-lg mt-3" })
+    <a asp-action="List" class="btn btn-secondary btn-lg mt-3 ">Volver</a>
+</div>

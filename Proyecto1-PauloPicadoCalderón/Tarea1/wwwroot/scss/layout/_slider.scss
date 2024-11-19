@@ -1,0 +1,113 @@
+﻿@use "../base/var" as v;
+@use "../base/mixins" as m;
+
+.bienvenida {
+    text-align: center;
+    padding: 2rem;
+    background-color: v.$color-light-gray;
+    border-radius: 8px;
+    margin: 2rem 0;
+
+    h1 {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        font-size: 2rem;
+        margin: 0;
+    }
+}
+
+.Content-Index {
+    margin: 0;
+    padding: 0;
+}
+
+.TituloMain {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 3rem;
+}
+
+.slider-frame {
+    width: 100%;
+    height: auto;
+    max-height: 720px;
+    margin: 1rem auto 0;
+    overflow: hidden;
+}
+
+.slider-frame ul {
+    display: flex;
+    padding: 0;
+    width: 100%;
+    animation: slide 30s linear infinite;
+
+    li {
+        flex: 0 0 100%;
+        list-style: none;
+    }
+}
+
+.slider-frame img {
+    width: 100%;
+    height: auto;
+}
+
+@keyframes slide {
+    0% {
+        margin-left: 0%;
+    }
+
+    20% {
+        margin-left: 0%;
+    }
+
+    25% {
+        margin-left: -100%;
+    }
+
+    45% {
+        margin-left: -100%;
+    }
+
+    50% {
+        margin-left: -200%;
+    }
+
+    70% {
+        margin-left: -200%;
+    }
+
+    75% {
+        margin-left: -300%;
+    }
+
+    95% {
+        margin-left: -300%;
+    }
+
+    100% {
+        margin-left: 0%;
+    }
+}
+
+@media (max-width: 480px) {
+    .slider-frame {
+        max-height: 400px;
+    }
+
+    .TituloMain {
+        font-size: 1.5rem;
+        margin-top: 1rem;
+    }
+
+    .bienvenida h1 {
+        font-size: 2rem;
+    }
+
+    .bienvenida p {
+        font-size: 1rem;
+    }
+}

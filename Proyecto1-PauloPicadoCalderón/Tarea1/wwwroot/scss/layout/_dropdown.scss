@@ -1,0 +1,13 @@
+﻿.dropdown-container {
+    position: relative;
+}
+
+.dropdown-icon {
+    position: absolute; 
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    width: 20px;
+    height: 20px;
+}

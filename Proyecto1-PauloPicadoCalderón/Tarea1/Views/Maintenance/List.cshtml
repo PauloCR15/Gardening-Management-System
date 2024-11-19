@@ -1,0 +1,174 @@
+﻿@model IEnumerable<Tarea1.Models.Maintenance>
+
+@{
+    ViewData["Title"] = "Mantenimientos Registrados";
+}
+
+<header class="listado-header ">
+    <h1>Mantenimientos Registrados</h1>
+    <p>
+        <a asp-action="CreateMaintenance" class="btn btn-primary w-auto">Registrar Mantenimiento</a>
+        <div class="d-flex justify-content-end mb-3">
+            <div class="input-group" style="width: 250px;">
+                <input type="text" class="form-control" placeholder="Buscar..." aria-label="Buscar" id="searchInput">
+                <button class="custom-search-btn" type="button" id="searchButton" style="margin-left: -1px;">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </p>
+</header>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-warning" role="alert">
+        No hay mantenimientos registrados
+    </div>
+}
+else
+{
+    <table class="table table-striped table-sm" id="DataTable">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Céd.</th>
+                <th>Fecha Ejecución</th>
+                <th>Fecha Programada</th>
+                <th>Próximo Corte</th>
+                <th>Área</th>
+                <th>Cerca Viva</th>
+                <th>Días sin Corte</th>
+                <th>Preferencia</th>
+                <th>Tipo Césped</th>
+                <th>Se aplico producto</th>
+                <th>Productos Aplicados</th>
+                <th>Costo. Corte (m²)</th>
+                <th>Costo. Producto (m²)</th>
+                <th>Costo Total</th>
+                <th>Est.</th>
+                <th>Controles</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.MaintenanceID)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ClientID)</td>
+                    <td>@item.MaintenanceExecutedDate.ToShortDateString()</td>
+                    <td>@item.MaintenanceScheduledDate.ToShortDateString()</td>
+                    <td>@item.NextMowingDate.ToShortDateString()</td>
+                    <td>@Html.DisplayFor(modelItem => item.PropertyAreaSize)</td>
+                    <td>@Html.DisplayFor(modelItem => item.HedgeArea)</td>
+                    <td>@Html.DisplayFor(modelItem => item.DaysWithoutMowing)</td>
+                    <td>@Html.DisplayFor(modelItem => item.MowingPreferenceDescription)</td>
+                    <td>@Html.DisplayFor(modelItem => item.GrassType)</td>
+                    @if (item.HasAppliedProducts == true)
+                    {
+                        <td>Si</td>
+                        <td>@Html.DisplayFor(modelItem => item.AppliedProductName)</td>
+                    }
+                    else
+                    {
+                        <td>No</td>
+                        <td>N/A</td>
+                    }
+                    <td>@Html.DisplayFor(modelItem => item.MowingCostPerSquareMeter)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ProductApplicationCostPerSquareMeter)</td>
+                    <td>@item.TotalCost.ToString("C2")</td>
+                    @if (item.MaintenanceStatus == 1)
+                    {
+                        <td>Facturado</td>
+                    }
+                    else if (item.MaintenanceStatus == 2)
+                    {
+                        <td>Agendado</td>
+                    }
+                    else if (item.MaintenanceStatus == 3)
+                    {
+                        <td>En Proceso</td>
+                    }
+                    <td>
+                        <a href="@Url.Action("Edit", new { id = item.MaintenanceID })" class="btn btn-success btn-sm" title="Editar" style="text-decoration: none; color: white; background-color: green;">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </a>
+                        <a href="@Url.Action("Details", new { id = item.MaintenanceID })" class="btn btn-info btn-sm" title="Detalles" style="text-decoration: none; color: white; background-color: blue;">
+                            <i class="fa-solid fa-info"></i>
+                        </a>
+                        <a href="@Url.Action("Delete", new { id = item.MaintenanceID })" class="btn btn-danger btn-sm" title="Eliminar" style="text-decoration: none; color: white; background-color: red;">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@section Scripts {
+    <script src="~/js/List.js"></script>
+    <script>
+        document.getElementById("searchButton").onclick = function () {
+            var searchId = document.getElementById("searchInput").value;
+            if (searchId) {
+                // Redirige a la acción Details con el id obtenido
+                window.location.href = '/Maintenance/Details/' + searchId;
+            } else {
+                alert("Por favor, ingrese un ID válido.");
+            }
+        };
+    </script>
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <script>
+            alert('@TempData["ErrorMessage"]');
+        </script>
+    }
+}
+
+<style>
+    .table {
+        width: 100%;
+        table-layout: fixed;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+        .table th, .table td {
+            padding: 0.75rem;
+            word-wrap: break-word;
+        }
+
+    .container.listado {
+        max-width: 95%;
+    }
+
+
+    .btn {
+        margin-right: 0.25rem;
+    }
+
+
+    .table th {
+        font-weight: bold;
+        text-align: center;
+    }
+
+
+    .custom-search-btn {
+        background-color: #8B4513;
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+    }
+
+        .custom-search-btn:hover {
+            background-color: #A0522D;
+        }
+
+</style>

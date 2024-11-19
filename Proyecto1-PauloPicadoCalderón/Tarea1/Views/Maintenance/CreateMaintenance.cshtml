@@ -1,0 +1,208 @@
+﻿@model Tarea1.Models.Maintenance
+
+@{
+    ViewData["Title"] = "Crear Mantenimiento";
+}
+
+<div class="contenedor border rounded mb-4 contenedor mt-4">
+    <h5 class="text-center display-2 mb-5 mt-2">Registrar mantenimiento</h5>
+    <div class="row" style="margin-left:1rem; margin-right:1rem;">
+        <div class="col-md-12">
+            <form asp-action="CreateMaintenance" id="maintenanceForm">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group">
+                    <label asp-for="ClientID" class="control-label"></label>
+                    <div class="input-group">
+                        <input asp-for="ClientID" class="form-control mb-3" id="ID" type="text" />
+                        <div class="input-group-append">
+                            <button class="btn" type="button" id="searchButton" style="border: none; padding: 0; background: none;">
+                                <i class="fa-solid fa-magnifying-glass" style="color: blue; font-size: 2.2em; margin-left: 5px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <span asp-validation-for="ClientID" class="text-danger" id="clientError"></span>
+                </div>
+
+                <!-- Contenedor para los campos que se mostrarán u ocultarán -->
+                <div id="maintenanceFields" style="display:none;">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="MaintenanceID" class="control-label">ID Mantenimiento</label>
+                                <input asp-for="MaintenanceID" class="form-control" type="text" readonly value="@ViewData["ClientID"]" />
+                                <span asp-validation-for="MaintenanceID" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="MaintenanceExecutedDate" class="control-label"></label>
+                                <input asp-for="MaintenanceExecutedDate" class="form-control" type="date" id="ExecutedDate" min="1900-01-01" />
+                                <span asp-validation-for="MaintenanceExecutedDate" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="MaintenanceScheduledDate" class="control-label"></label>
+                                <input asp-for="MaintenanceScheduledDate" class="form-control date" type="date" id="ScheduledDate" />
+                                <span asp-validation-for="MaintenanceScheduledDate" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="NextMowingDate" class="control-label"></label>
+                                <input asp-for="NextMowingDate" class="form-control" type="date" readonly />
+                                <span asp-validation-for="NextMowingDate" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="PropertyAreaSize" class="control-label"></label>
+                                <input asp-for="PropertyAreaSize" class="form-control" id="PropertyArea" />
+                                <span asp-validation-for="PropertyAreaSize" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="HedgeArea" class="control-label"></label>
+                                <input asp-for="HedgeArea" class="form-control" id="HedgeArea" />
+                                <span asp-validation-for="HedgeArea" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="DaysWithoutMowing" class="control-label"></label>
+                                <input asp-for="DaysWithoutMowing" class="form-control" readonly id="DaysWithoutMowing" type="text" />
+                                <span asp-validation-for="DaysWithoutMowing" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="MowingPreferenceDescription" class="control-label"></label>
+                                <input asp-for="MowingPreferenceDescription" class="form-control" readonly id="MowingPreference" />
+                                <span asp-validation-for="MowingPreferenceDescription" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="GrassType" class="control-label"></label>
+                                <div class="dropdown-container">
+                                    <select class="form-control" asp-for="GrassType">
+                                        <option value="">Seleccione una opción</option>
+                                        <option value="Zacate San Agustín">Zacate San Agustín</option>
+                                        <option value="Zacate Toro">Zacate Toro</option>
+                                        <option value="Zacate Dulce">Zacate Dulce</option>
+                                        <option value="Otro">Otro</option>
+                                    </select>
+                                    <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path d="M7 10l5 5 5-5z"></path>
+                                    </svg>
+                                </div>
+                                <span asp-validation-for="GrassType" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="form-check-label">
+                                    <input asp-for="HasAppliedProducts" id="checkbox" class="form-check-input" />
+                                    @Html.DisplayNameFor(model => model.HasAppliedProducts)
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="AppliedProductName" class="control-label"></label>
+                                <div class="dropdown-container">
+                                    <select class="form-control" asp-for="AppliedProductName" id="inputAppliedProducts">
+                                        <option disabled selected value="">Seleccione una opción</option>
+                                        <option value="Random">Random</option>
+                                        <option value="Coyolillo">Coyolillo</option>
+                                        <option value="Hoja Ancha">Hoja Ancha</option>
+                                        <option value="Otro">Otro</option>
+                                    </select>
+                                    <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path d="M7 10l5 5 5-5z"></path>
+                                    </svg>
+                                </div>
+                                <span asp-validation-for="AppliedProductName" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="ProductApplicationCostPerSquareMeter" class="control-label"></label>
+                                <input asp-for="ProductApplicationCostPerSquareMeter" class="form-control" id="ProductApplicationCostPerSquareMeter" />
+                                <span asp-validation-for="ProductApplicationCostPerSquareMeter" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="MowingCostPerSquareMeter" class="control-label"></label>
+                                <input asp-for="MowingCostPerSquareMeter" class="form-control" id="MowingCostPerSquareMeter" />
+                                <span asp-validation-for="MowingCostPerSquareMeter" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="TotalCost" class="control-label"></label>
+                                <input asp-for="TotalCost" class="form-control" readonly />
+                                <span asp-validation-for="TotalCost" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="MaintenanceStatus" class="control-label"></label>
+                                <div class="dropdown-container">
+                                    <select class="form-control" asp-for="MaintenanceStatus">
+                                        <option value="">Seleccione una opción</option>
+                                        <option value=3>En proceso</option>
+                                        <option value=1>Facturado</option>
+                                        <option value=2>Agendado</option>
+                                    </select>
+                                    <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path d="M7 10l5 5 5-5z"></path>
+                                    </svg>
+                                </div>
+                                <span asp-validation-for="MaintenanceStatus" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div> <!-- Fin de la fila -->
+                    <input type="hidden" asp-for="MaintenanceID" />
+                    <input type="hidden" id="MowingPreferenceHidden" name="MowingPreferenceID" asp-for="MowingPreferenceID" />
+                    <input type="submit" value="Crear" class="btn btn-primary w-50 me-2 mb-3" />
+                    <a asp-action="List" class="btn btn-secondary w-25 mb-3 text-uppercase" style="font-size:1.8rem; padding:1rem 2rem;">Volver</a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="~/js/CreateMaintenance.js"></script>
+    <script src="~/js/Validations.js"></script>
+    <script>
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('ScheduledDate').min = today;
+        document.getElementById('ExecutedDate').max = today;
+
+    </script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+}

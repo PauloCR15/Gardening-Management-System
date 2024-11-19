@@ -1,0 +1,115 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="Content-Index"></div>
+
+<section class="bienvenida">
+    <h1>¡Bienvenidos a Jardinería Hermanos Hernández!</h1>
+    <p>Nos complace ofrecerte servicios de jardinería de alta calidad, adaptados a tus necesidades. Explora nuestros trabajos, servicios y lo que nuestros clientes dicen sobre nosotros. ¡Tu jardín merece lo mejor!</p>
+</section>
+<section class="slider-frame Slider">
+    <h2 class="TituloMain text-center">Algunos de nuestros trabajos</h2>
+    <div id="trabajosCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <picture>
+                    <source srcset="/Images/pexels-pixabay-259588.webp" type="image/webp" />
+                    <img src="/Images/pexels-pixabay-259588.jpg" class="d-block w-100" alt="Trabajo 1" loading="lazy">
+                </picture>
+            </div>
+            <div class="carousel-item">
+                <picture>
+                    <source srcset="/Images/pexels-pixabay-280222.webp" type="image/webp" />
+                    <img src="/Images/pexels-pixabay-280222.jpg" class="d-block w-100" alt="Trabajo 2" loading="lazy">
+                </picture>
+            </div>
+            <div class="carousel-item">
+                <picture>
+                    <source srcset="/Images/pexels-pixabay-280229.webp" type="image/webp" />
+                    <img src="/Images/pexels-pixabay-280229.jpg" class="d-block w-100" alt="Trabajo 3" loading="lazy">
+            </div>
+            <div class="carousel-item">
+                <picture>
+                    <source srcset="/Images/pexels-creative-vix-7283.webp" type="image/webp" />
+                    <img src="/Images/pexels-creative-vix-7283.jpg" class="d-block w-100" alt="Trabajo 4" loading="lazy">
+            </div>
+        </div>
+
+        
+        <button class="carousel-control-prev" type="button" data-bs-target="#trabajosCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#trabajosCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+
+<section class="Servicios">
+    <h2 class="TituloMain">Nuestros servicios</h2>
+    <div class="Servicios-Contenido">
+        <div class="Servicio">
+            <h3>Servicio 1: Mantenimiento Integral de Jardines</h3>
+            <p>Nos especializamos en el cuidado y mantenimiento integral de jardines, ofreciendo desde la poda de césped y plantas hasta la eliminación de malas hierbas. Nuestro equipo asegura que tu espacio verde se mantenga en óptimas condiciones durante todo el año.</p>
+            <picture>
+                <source srcset="/Images/Servicio-1.webp" type="image/webp" />
+                <img src="/Images/Servicio 1.jpg" alt="Servicio 1" width="300" height="200" loading="lazy">
+        </div>
+        <div class="Servicio">
+            <h3>Servicio 2: Diseño y Paisajismo</h3>
+            <p>Creamos diseños de jardines personalizados que se adaptan a tus gustos y necesidades. Desde pequeños jardines residenciales hasta amplios espacios comerciales, nuestro enfoque es transformar cualquier área en un lugar estéticamente agradable y funcional.</p>
+            <picture>
+                <source srcset="/Images/Servicio-2.webp" type="image/webp" />
+                <img src="/Images/Servicio 2.jpg" alt="Servicio 2" width="300" height="200" loading="lazy">
+            </picture>
+        </div>
+        <div class="Servicio">
+            <h3>Servicio 3: Instalación de Sistemas de Riego</h3>
+            <p>Contamos con experiencia en la instalación de sistemas de riego automatizados, garantizando un uso eficiente del agua y un riego adecuado para cada tipo de planta. Nuestros sistemas aseguran que tu jardín se mantenga saludable y bien hidratado sin desperdiciar recursos.</p>
+            <picture>
+                <source srcset="/Images/Servicio-3.webp" type="image/webp" />
+                <img src="/Images/Servicio 3.jpg" alt="Servicio 3" width="300" height="200" loading="lazy">
+            </picture>
+        </div>
+    </div>
+</section>
+
+<section class="testimonios">
+    <h2>Lo que dicen nuestros clientes</h2>
+    <div class="testimonios-contenido">
+        <div class="testimonio">
+            <p>"El servicio que recibí fue excepcional. Mis jardines nunca se habían visto tan bien. ¡Recomiendo altamente!"</p>
+            <div class="testimonio-imagen">
+                <picture>
+                    <source srcset="/Images/Persona-1.webp" type="image/webp" />
+                    <img src="/Images/Persona 1.jpg" alt="Testimonio 1" width="100" height="100" loading="lazy">
+                </picture>
+                <h4>- Juan Pérez</h4>
+            </div>
+        </div>
+        <div class="testimonio">
+            <p>"El diseño de mi jardín fue impresionante. Capturaron exactamente lo que quería. ¡Estoy muy feliz!"</p>
+            <div class="testimonio-imagen">
+                <picture>
+                    <source srcset="/Images/Persona-2.webp" type="image/webp" />
+                    <img src="/Images/Persona 2.jpg" alt="Testimonio 2" width="100" height="100" loading="lazy">
+                </picture>
+                <h4>- María López</h4>
+            </div>
+        </div>
+        <div class="testimonio">
+            <p>"La instalación del sistema de riego fue rápida y eficiente. Mis plantas están felices y saludables."</p>
+            <div class="testimonio-imagen">
+                <picture>
+                    <source srcset="/Images/Persona-3.webp" type="image/webp" />
+                    <img src="/Images/Persona 3.jpg" alt="Testimonio 3" width="100" height="100" loading="lazy">
+                </picture>
+                <h4>- Carlos Gómez</h4>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>

@@ -1,0 +1,86 @@
+﻿@model Tarea1.Models.Client
+
+@{
+    ViewData["Title"] = "Eliminar Cliente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="contenedor">
+    <div class="alert alert-danger mt-3" role="alert">
+        ¿Seguro que quieres borrar este cliente?
+    </div>
+
+    <div class="border rounded p-3 mb-4">
+        <h5 class="text-center display-5 mb-4">Información del Cliente</h5>
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ClientID)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ClientID)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ClientFullName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ClientFullName)
+            </dd>
+        </dl>
+    </div>
+
+    <div class="border rounded p-3 mb-4">
+        <h5 class="text-center display-5 mb-4">Detalles de dirección</h5>
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Province)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Province)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Canton)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Canton)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.District)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.District)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ClientFullDirection)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ClientFullDirection)
+            </dd>
+        </dl>
+    </div>
+
+    <div class="border rounded p-3 mb-4">
+        <h5 class="text-center display-5 mb-4">Preferencias de Mantenimiento</h5>
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.SummerMowingPreferenceName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.SummerMowingPreferenceName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.WinterMowingPrecerenceName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.WinterMowingPrecerenceName)
+            </dd>
+        </dl>
+    </div>
+
+    <div class="d-flex gap-3">
+        <form metod="post" asp-action="Delete">
+            <input type="hidden" asp-for="ClientID" />
+            <input type="submit" value="Eliminar" class="btn btn-danger btn-lg mt-3" />
+        </form>
+        <a asp-action="List" class="btn btn-secondary btn-lg mt-3">Volver</a>
+    </div>
+</div>

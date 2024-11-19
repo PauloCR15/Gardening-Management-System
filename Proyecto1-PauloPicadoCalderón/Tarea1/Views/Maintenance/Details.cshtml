@@ -1,0 +1,87 @@
+﻿@model Tarea1.Models.Maintenance
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="contenedor">
+    <div class="border rounded p-3 mb-4 mt-4">
+        <h5 class="text-center display-5 mb-4">Información de Mantenimiento</h5>
+        <dl class="row">
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.MaintenanceID) </dt>
+            <dd class="col-sm-9"> @Html.DisplayFor(model => model.MaintenanceID) </dd>
+
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.ClientID) </dt>
+            <dd class="col-sm-9"> @Html.DisplayFor(model => model.ClientID) </dd>
+
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.MaintenanceExecutedDate) </dt>
+            <dd>
+                @Model.MaintenanceExecutedDate.Date.ToShortDateString()
+            </dd>
+
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.MaintenanceScheduledDate) </dt>
+            <dd class="col-sm-9">
+                @Model.MaintenanceScheduledDate.Date.ToShortDateString()
+            </dd>
+
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.NextMowingDate) </dt>
+            <dd class="col-sm-9">
+                @Model.NextMowingDate.Date.ToShortDateString()
+            </dd>
+        </dl>
+    </div>
+
+    <div class="border rounded p-3 mb-4">
+        <h5 class="text-center display-5 mb-4">Detalles del Área</h5>
+        <dl class="row">
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.PropertyAreaSize) </dt>
+            <dd class="col-sm-9"> @Html.DisplayFor(model => model.PropertyAreaSize) </dd>
+
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.HedgeArea) </dt>
+            <dd class="col-sm-9"> @Html.DisplayFor(model => model.HedgeArea) </dd>
+
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.DaysWithoutMowing) </dt>
+            <dd class="col-sm-9"> @Html.DisplayFor(model => model.DaysWithoutMowing) </dd>
+
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.MowingPreferenceID) </dt>
+            <dd class="col-sm-9"> @Html.DisplayFor(model => model.MowingPreferenceID) </dd>
+
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.GrassType) </dt>
+            <dd class="col-sm-9"> @Html.DisplayFor(model => model.GrassType) </dd>
+        </dl>
+    </div>
+
+    <div class="border rounded p-3 mb-4">
+        <h5 class="text-center display-5 mb-4">Costos y Productos</h5>
+        <dl class="row">
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.HasAppliedProducts) </dt>
+            <dd class="col-sm-9"> @Html.DisplayFor(model => model.HasAppliedProducts) </dd>
+
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.AppliedProductName) </dt>
+            <dd class="col-sm-9"> @Html.DisplayFor(model => model.AppliedProductName) </dd>
+
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.MowingCostPerSquareMeter) </dt>
+            <dd class="col-sm-9"> @Html.DisplayFor(model => model.MowingCostPerSquareMeter) </dd>
+
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.ProductApplicationCostPerSquareMeter) </dt>
+            <dd class="col-sm-9"> @Html.DisplayFor(model => model.ProductApplicationCostPerSquareMeter) </dd>
+
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.TotalCost) </dt>
+            <dd class="col-sm-9"> @Html.DisplayFor(model => model.TotalCost) </dd>
+        </dl>
+    </div>
+
+    <div class="border rounded p-3 mb-4">
+        <h5 class="text-center display-5 mb-4">Estado</h5>
+        <dl class="row">
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.MaintenanceStatus) </dt>
+            <dd class="col-sm-9"> @Html.DisplayFor(model => model.MaintenanceStatus) </dd>
+        </dl>
+    </div>
+</div>
+
+<div class="d-flex gap-3">
+    @Html.ActionLink("Editar", "Edit", new { id = Model.MaintenanceID }, new { @class = "btn btn-secondary btn-lg mt-3" })
+    <a asp-action="List" class="btn btn-secondary btn-lg mt-3 ">Volver</a>
+</div>

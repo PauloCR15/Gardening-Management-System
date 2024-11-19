@@ -1,0 +1,41 @@
+﻿@use "../base/var" as v;
+@use "../base/mixins" as m;
+
+html, body {
+    height: 100%; // Asegura que el body ocupa el 100% del viewport
+    margin: 0;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; // Cambia de 100% a 100vh para asegurarse de que ocupe todo el viewport
+}
+
+.content {
+    flex: 1; // El contenido principal se expandirá para ocupar el espacio disponible
+}
+
+
+.footer {
+    padding: 1rem 0;
+    background-color: v.$color-light-gray;
+    text-align: center;
+
+    &.border-top {
+        border-top: 1px solid v.$color-secundario;
+    }
+
+    &.text-muted {
+        color: v.$negro;
+    }
+
+    a {
+        color: v.$color-primario;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

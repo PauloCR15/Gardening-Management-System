@@ -1,0 +1,68 @@
+﻿@use "../base/var" as v;
+@use "../base/mixins" as m;
+
+.Servicios {
+    h2 {
+        margin-top: 2rem;
+        font-size: 3rem;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    h3 {
+        font-size: 2rem;
+        margin: 0;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+}
+.Servicio{
+    margin-bottom:1rem;
+}
+
+.Servicios-Contenido {
+    
+    > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 300px;
+        padding: 1.5rem;
+        background-color: v.$color-light-gray;
+        border-radius: 8px;
+    }
+
+    p {
+        margin: 0;
+        text-align: justify;
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        border-radius: inherit;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .Servicios__texto {
+        flex-grow: 1;
+    }
+
+    .Servicios__footer {
+        margin-top: auto;
+    }
+ 
+    @include m.tablet {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+        gap: 2rem;
+    }
+
+    @include m.desktop {
+        display: grid; 
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        
+    }
+}

@@ -1,0 +1,33 @@
+﻿@use "../base/var" as v;
+@use "../base/mixins" as m;
+
+.formulario .form-control {
+    font-size: 1.5rem !important;
+
+    @include m.tablet {
+        font-size: 1.8rem !important;
+    }
+
+    @include m.desktop {
+        font-size: 2rem !important;
+    }
+}
+
+.form-group label {
+    min-width: 100px;
+
+    & h1 {
+        margin: 0;
+        margin-top: 2rem;
+    }
+}
+
+.alerta {
+        position: relative;
+        padding: 1rem 1rem;
+        margin-bottom: 1rem;
+        border: 1px solid transparent;
+        border-radius: .25rem;
+        margin-left: 5rem;
+        margin-right: 5rem;
+}

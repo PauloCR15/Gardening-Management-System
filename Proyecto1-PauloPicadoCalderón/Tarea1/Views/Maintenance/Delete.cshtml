@@ -1,0 +1,110 @@
+﻿@model Tarea1.Models.Maintenance
+
+@{
+    ViewData["Title"] = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="contenedor ">
+    <div class="alert alert-danger w-100 mt-3" role="alert">¿Está seguro de que desea eliminar este mantenimiento?</div>
+
+    <!-- Agrupar la información del cliente -->
+    <div class="border rounded p-3 mb-4 w-100">
+        <h5 class="text-center display-5 mb-4">Información del Cliente</h5>
+        <dl class="row">
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.MaintenanceID) </dt>
+            <dd class="col-sm-9"> @Html.DisplayFor(model => model.MaintenanceID) </dd>
+
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.ClientID) </dt>
+            <dd class="col-sm-9"> @Html.DisplayFor(model => model.ClientID) </dd>
+        </dl>
+    </div>
+
+    <!-- Agrupar los detalles de mantenimiento -->
+    <div class="border rounded p-3 mb-4 w-100">
+        <h5 class="text-center display-5 mb-4">Detalles de Mantenimiento</h5>
+        <dl class="row">
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.MaintenanceExecutedDate) </dt>
+            <dd class="col-sm-9">
+                @Model.MaintenanceExecutedDate.ToShortDateString()
+            </dd>
+
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.MaintenanceScheduledDate) </dt>
+            <dd class="col-sm-9">
+                @Model.MaintenanceScheduledDate.ToShortDateString()
+            </dd>
+
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.MaintenanceStatus) </dt>
+            <dd class="col-sm-9"> @Html.DisplayFor(model => model.MaintenanceStatus) </dd>
+        </dl>
+    </div>
+
+    <!-- Agrupar los detalles de chapia -->
+    <div class="border rounded p-3 mb-4 w-100">
+        <h5 class="text-center display-5 mb-4">Detalles de Chapia</h5>
+        <dl class="row">
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.NextMowingDate) </dt>
+            <dd class="col-sm-9">
+                @Model.NextMowingDate.ToShortDateString()
+            </dd>
+
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.PropertyAreaSize) </dt>
+            <dd class="col-sm-9"> @Html.DisplayFor(model => model.PropertyAreaSize) </dd>
+
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.HedgeArea) </dt>
+            <dd class="col-sm-9"> @Html.DisplayFor(model => model.HedgeArea) </dd>
+
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.DaysWithoutMowing) </dt>
+            <dd class="col-sm-9"> @Html.DisplayFor(model => model.DaysWithoutMowing) </dd>
+
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.MowingPreferenceID) </dt>
+            <dd class="col-sm-9"> @Html.DisplayFor(model => model.MowingPreferenceID) </dd>
+        </dl>
+    </div>
+
+    <!-- Agrupar los detalles del césped y productos -->
+    <div class="border rounded p-3 mb-4 w-100">
+        <h5 class="text-center display-5 mb-4">Césped y Aplicación de Productos</h5>
+        <dl class="row">
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.GrassType) </dt>
+            <dd class="col-sm-9"> @Html.DisplayFor(model => model.GrassType) </dd>
+
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.HasAppliedProducts) </dt>
+            @if (Model.HasAppliedProducts == true)
+            {
+                <dd class="col-sm-9">Sí</dd>
+                <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.AppliedProductName) </dt>
+                <dd class="col-sm-9"> @Html.DisplayFor(model => model.AppliedProductName) </dd>
+            }
+            else
+            {
+                <dd class="col-sm-9">No</dd>
+                <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.AppliedProductName) </dt>
+                <dd class="col-sm-9">N/A</dd>
+            }
+        </dl>
+    </div>
+
+    <!-- Agrupar los costos -->
+    <div class="border rounded p-3 mb-4 w-100">
+        <h5 class="text-center display-5 mb-4">Costos</h5>
+        <dl class="row">
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.MowingCostPerSquareMeter) </dt>
+            <dd class="col-sm-9"> @Html.DisplayFor(model => model.MowingCostPerSquareMeter) </dd>
+
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.ProductApplicationCostPerSquareMeter) </dt>
+            <dd class="col-sm-9"> @Html.DisplayFor(model => model.ProductApplicationCostPerSquareMeter) </dd>
+
+            <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.TotalCost) </dt>
+            <dd class="col-sm-9"> @Html.DisplayFor(model => model.TotalCost) </dd>
+        </dl>
+    </div>
+
+    <div class="d-flex gap-3">
+        <form metod="post" asp-action="Delete">
+            <input type="hidden" asp-for="MaintenanceID" />
+            <input type="submit" value="Eliminar" class="btn btn-danger btn-lg mt-3" />
+        </form>
+        <a asp-action="List" class="btn btn-secondary btn-lg mt-3">Volver</a>
+    </div>
+</div>

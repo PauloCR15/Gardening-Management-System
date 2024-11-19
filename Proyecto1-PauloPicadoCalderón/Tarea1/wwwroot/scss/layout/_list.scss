@@ -1,0 +1,59 @@
+﻿@use "../base/var" as v;
+@use "../base/mixins" as m;
+
+.listado-header {
+    h1 {
+        color: v.$negro;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        text-align: center;
+
+        @include m.tablet {
+            font-size: 3rem;
+        }
+
+        @include m.desktop {
+            font-size: 4rem;
+        }
+    }
+
+    p {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+
+        @include m.tablet {
+            font-size: 2rem;
+        }
+
+        @include m.desktop {
+            font-size: 2.5rem;
+        }
+    }
+}
+
+.table-responsive {
+    overflow-x: auto;
+    margin-bottom: 2rem;
+
+    .table {
+        width: 100%;
+        min-width: 600px;
+        font-size: 0.9rem;
+
+        @include m.tablet {
+            font-size: 1.5rem;
+        }
+
+        @include m.desktop {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+.alert .alert-warning {
+    width: 95%;
+}
+
+.centered {
+    text-align: center;
+}

@@ -1,0 +1,75 @@
+﻿@model Tarea1.Models.Employee
+
+@{
+    ViewData["Title"] = "Crear Empleado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row justify-content-start border rounder mb-4 contenedor mt-4">
+    <h5 class="text-center display-2 mb-5 mt-2">Registrar Empleado</h5>
+    <div class="col-md-6">
+        <form asp-action="Create" class="add-formulario">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <!-- ID -->
+            <div class="form-group mb-3">
+                <label asp-for="EmployeeID" class="control-label"></label>
+                <input asp-for="EmployeeID" class="form-control" id="ID" type="number" placeholder="_________"/>
+                <span asp-validation-for="EmployeeID" class="text-danger"></span>
+            </div>
+
+            <!-- Fecha de nacimiento -->
+            <div class="form-group mb-3">
+                <label asp-for="EmployeeBirthdate" class="control-label" ></label>
+                <input asp-for="EmployeeBirthdate" class="form-control" id="Birthdate" type="date" />
+                <span asp-validation-for="EmployeeBirthdate" class="text-danger"></span>
+            </div>
+
+            <!-- Preferencia de mano -->
+            <div class="form-group mb-3">
+                <label asp-for="EmployeeLaterality" class="control-label"></label>
+                <select asp-for="EmployeeLaterality" class="form-control">
+                    <option value="">Seleccione una opción</option>
+                    <option value="Diestro">Diestro</option>
+                    <option value="Zurdo">Zurdo</option>
+                </select>
+                <span asp-validation-for="EmployeeLaterality" class="text-danger"></span>
+            </div>
+
+            <!-- Salario -->
+            <div class="form-group mb-3">
+                <label asp-for="EmployeeSalaryxHour" class="control-label"></label>
+                <input asp-for="EmployeeSalaryxHour" class="form-control" type="number" placeholder="₡" />
+                <span asp-validation-for="EmployeeSalaryxHour" class="text-danger"></span>
+            </div>
+
+            <!-- Fecha de inicio -->
+            <div class="form-group mb-3">
+                <label asp-for="EmployeeStartDate" class="control-label"></label>
+                <input asp-for="EmployeeStartDate" class="form-control" type="date" />
+                <span asp-validation-for="EmployeeStartDate" class="text-danger"></span>
+            </div>
+
+            <!-- Botón de crear -->
+
+            <form metod="post" asp-action="Delete">
+                <input type="hidden" asp-for="EmployeeID" />
+                <input type="submit" value="Crear" class="btn btn-primary btn-lg w-50" />
+            </form>
+
+            <a asp-action="List" class="btn btn-secondary btn-lg mt-3 mb-3 w-25 text-uppercase" style="font-size:1.8rem; padding:1rem 2rem;">Volver</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/Validations.js" asp-append-version="true"></script>
+    <script >
+        const today = new Date().toISOString().split('T')[0];
+       
+        document.getElementById('Birthdate').max = today;
+    </script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

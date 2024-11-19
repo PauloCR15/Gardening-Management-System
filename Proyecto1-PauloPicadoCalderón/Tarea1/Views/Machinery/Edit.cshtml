@@ -1,0 +1,84 @@
+﻿@model Tarea1.Models.Machinery
+
+@{
+    ViewData["Title"] = "Editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row justify-content-start border rounded mb-4 contenedor mt-4">
+    <h5 class="text-center display-5 mb-5 mt-2">Editar Maquinaria</h5>
+    <div class="col-md-6">
+        <form asp-action="Edit" class="add-formulario">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-4">
+                <h5 class="text-center display-5 mb-4">Detalles de la Maquinaria</h5>
+
+                <div class="form-group mb-3">
+                    <label asp-for="MachineryID" class="control-label"></label>
+                    <input asp-for="MachineryID" class="form-control" readonly />
+                    <span asp-validation-for="MachineryID" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="MachineryDescription" class="control-label"></label>
+                    <input asp-for="MachineryDescription" class="form-control" />
+                    <span asp-validation-for="MachineryDescription" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="MachineryType" class="control-label"></label>
+                    <div class="dropdown-container">
+                        <select asp-for="MachineryType" class="form-control">
+                            <option value="">Seleccione una opción</option>
+                            <option value="Shindaiwa">Shindaiwa</option>
+                            <option value="Corta setos">Corta setos</option>
+                            <option value="Motosierra">Motosierra</option>
+                            <option value="Rastrillo">Rastrillo</option>
+                            <option value="Carretillo">Carretillo</option>
+                            <option value="Otros">Otros</option>
+                        </select>
+                        <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M7 10l5 5 5-5z"></path>
+                        </svg>
+                    </div>
+                    <span asp-validation-for="MachineryType" class="text-danger"></span>
+                </div>
+            </div>
+
+            <h5 class="text-center display-5 mb-4">Horas de Uso y Mantenimiento</h5>
+
+            <div class="form-group">
+                <label asp-for="MachineryActualUseTime" class="control-label"></label>
+                <input asp-for="MachineryActualUseTime" class="form-control" placeholder="Horas Actuales de Uso" type="number" />
+                <span asp-validation-for="MachineryActualUseTime" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="MachineryMaxHoursPerDay" class="control-label"></label>
+                <input asp-for="MachineryMaxHoursPerDay" class="form-control" placeholder="Máximo de Horas por Día" type="number" />
+                <span asp-validation-for="MachineryMaxHoursPerDay" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="MaintenanceHours" class="control-label"></label>
+                <input asp-for="MaintenanceHours" class="form-control" placeholder="Horas de Mantenimiento" type="number" />
+                <span asp-validation-for="MaintenanceHours" class="text-danger"></span>
+            </div>
+
+            <!-- Botón de guardar -->
+            <form method="post" asp-action="Edit">
+                <input type="hidden" asp-for="MachineryID" />
+                <input type="submit" value="Editar" class="btn btn-primary w-50 me-2 mb-3" />
+            </form>
+            <a asp-action="List" class="btn btn-secondary w-40 mb-3 text-uppercase" style="font-size:1.8rem; padding:1rem 2rem;">Volver</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/Validations.js" asp-append-version="true"></script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
