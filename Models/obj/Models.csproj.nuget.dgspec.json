@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\paulo\\source\\repos\\Tarea-3-Fundamentos-Programacion\\Models\\Models.csproj": {}
+    "C:\\Users\\paulo\\source\\repos\\Tarea\\Models\\Models.csproj": {}
   },
   "projects": {
-    "C:\\Users\\paulo\\source\\repos\\Tarea-3-Fundamentos-Programacion\\Models\\Models.csproj": {
+    "C:\\Users\\paulo\\source\\repos\\Tarea\\Models\\Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\paulo\\source\\repos\\Tarea-3-Fundamentos-Programacion\\Models\\Models.csproj",
+        "projectUniqueName": "C:\\Users\\paulo\\source\\repos\\Tarea\\Models\\Models.csproj",
         "projectName": "Models",
-        "projectPath": "C:\\Users\\paulo\\source\\repos\\Tarea-3-Fundamentos-Programacion\\Models\\Models.csproj",
+        "projectPath": "C:\\Users\\paulo\\source\\repos\\Tarea\\Models\\Models.csproj",
         "packagesPath": "C:\\Users\\paulo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\paulo\\source\\repos\\Tarea-3-Fundamentos-Programacion\\Models\\obj\\",
+        "outputPath": "C:\\Users\\paulo\\source\\repos\\Tarea\\Models\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

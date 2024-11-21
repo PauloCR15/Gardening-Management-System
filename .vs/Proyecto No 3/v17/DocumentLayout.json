@@ -1,0 +1,45 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\paulo\\source\\repos\\Tarea\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{13F030E4-1D46-4C1C-9859-73667B2D5E3D}|Proyecto1-PauloPicadoCalder\u00F3n\\Tarea1\\Tarea1.csproj|c:\\users\\paulo\\source\\repos\\tarea\\proyecto1-paulopicadocalder\u00F3n\\tarea1\\views\\maintenance\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{13F030E4-1D46-4C1C-9859-73667B2D5E3D}|Proyecto1-PauloPicadoCalder\u00F3n\\Tarea1\\Tarea1.csproj|solutionrelative:proyecto1-paulopicadocalder\u00F3n\\tarea1\\views\\maintenance\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\paulo\\source\\repos\\Tarea\\Proyecto1-PauloPicadoCalder\u00F3n\\Tarea1\\Views\\Maintenance\\Details.cshtml",
+              "RelativeDocumentMoniker": "Proyecto1-PauloPicadoCalder\u00F3n\\Tarea1\\Views\\Maintenance\\Details.cshtml",
+              "ToolTip": "C:\\Users\\paulo\\source\\repos\\Tarea\\Proyecto1-PauloPicadoCalder\u00F3n\\Tarea1\\Views\\Maintenance\\Details.cshtml",
+              "RelativeToolTip": "Proyecto1-PauloPicadoCalder\u00F3n\\Tarea1\\Views\\Maintenance\\Details.cshtml",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAADsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-21T19:03:10.871Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

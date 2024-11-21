@@ -76,7 +76,18 @@
         <h5 class="text-center display-5 mb-4">Estado</h5>
         <dl class="row">
             <dt class="col-sm-3"> @Html.DisplayNameFor(model => model.MaintenanceStatus) </dt>
-            <dd class="col-sm-9"> @Html.DisplayFor(model => model.MaintenanceStatus) </dd>
+            @if(Model.MaintenanceStatus == 1){
+                <dd class="col-sm-9"> Facturado </dd>
+            }
+            else if (Model.MaintenanceStatus == 2)
+            {
+                <dd class="col-sm-9"> Agendado </dd>
+            }
+            else
+            {
+                <dd class="col-sm-9"> En proceso </dd>
+            }
+
         </dl>
     </div>
 </div>
