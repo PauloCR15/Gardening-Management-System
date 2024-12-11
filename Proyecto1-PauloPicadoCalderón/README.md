@@ -93,9 +93,3 @@ Puedes encontrar el repositorio del proyecto [aquí](https://github.com/PauloCR1
 ## Perfil de GitHub
 
 Visita mi perfil de GitHub [aquí](https://github.com/PauloCR15).
-
-<<<<<<< HEAD
-## Enlace al video explicatorio [aquí](https://youtu.be/8042NWD_kaQ).
-=======
-## Enlace al video explicatorio [aquí](https://youtu.be/8042NWD_kaQ).
->>>>>>> a526487f71361075703450f18d92014ef8b60ea0
