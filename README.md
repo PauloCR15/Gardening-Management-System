@@ -45,16 +45,13 @@ Estos reportes no se almacenan en la base de datos, sino que son generados por e
    - Navegación completa entre las páginas de la aplicación.
    - Diseño intuitivo para la interacción con las funcionalidades del sistema.
 
-### Requisitos adicionales
-- El sistema es ejecutable únicamente en el servidor virtual asignado.
-- Se incluye el script de creación de la base de datos para garantizar la replicación del proyecto. El script debe ser ejecutado para crear la base de datos y las tablas necesarias.
 
 ---
 
 ## Instrucciones para la ejecución
 
-1. **Descarga y descomprime el archivo del proyecto**:
-   - Nombre del archivo: `Proyecto3-PauloPicadoCalderon.zip`.
+1. **Clonar el repositorio del proyecto del proyecto**:
+   - Enlace del repositorio: https://github.com/PauloCR15/Tarea-3-Fundamentos-Programacion.git
 2. **Configura la base de datos**:
    - Ejecuta el script de creación de la base de datos `EmpresaJardineria_Script.sql` para crear las tablas y relaciones necesarias.
 3. **Ejecuta el proyecto**:
@@ -69,24 +66,6 @@ Estos reportes no se almacenan en la base de datos, sino que son generados por e
 ## Script de Creación de la Base de Datos
 
 El script de creación de la base de datos se incluye en el archivo `EmpresaJardineria_Script.sql`. Este script crea las tablas necesarias y establece las relaciones entre ellas para que el sistema funcione correctamente.
-
----
-
-## Video demostrativo
-
-Se incluye un video explicativo dentro del servidor virtual en la carpeta `Proyecto3`. Este video muestra:
-- Configuración inicial.
-- Navegación por el sitio web.
-- Pruebas de los servicios RESTful.
-- Ejecución de los reportes.
-
----
-
-## Repositorio
-
-El código fuente completo del proyecto está disponible en el siguiente enlace de GitHub:
-
-[Repositorio del Proyecto 3](https://github.com/PauloCR15/Tarea-3-Fundamentos-Programacion.git)
 
 ---
 
