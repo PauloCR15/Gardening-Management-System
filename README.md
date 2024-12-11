@@ -51,7 +51,7 @@ Estos reportes no se almacenan en la base de datos, sino que son generados por e
 ## Instrucciones para la ejecución
 
 1. **Clonar el repositorio del proyecto del proyecto**:
-   - Enlace del repositorio: https://github.com/PauloCR15/Tarea-3-Fundamentos-Programacion.git
+   - Enlace del repositorio: https://github.com/PauloCR15/Gardening-Management-System.git
 2. **Configura la base de datos**:
    - Ejecuta el script de creación de la base de datos `EmpresaJardineria_Script.sql` para crear las tablas y relaciones necesarias.
 3. **Ejecuta el proyecto**:
